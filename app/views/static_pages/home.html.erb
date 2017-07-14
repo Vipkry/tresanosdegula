@@ -1,2 +1,41 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="row"></div>
+<h1>3 anos de GuLa!</h1>
+<h3>Tempo restante:</h3>
+<ul id="countdown" style="position: fixed">
+</ul>
+<div class="clear"></div>
+
+
+<script>
+    (function countdown(){   
+   
+   var launch_date = new Date (Date.parse("Aug 08, 2017 23:59:59 GMT -3"));
+   var now = new Date();
+   var days; var hours; var minutes; var seconds; var rest;
+	
+   seconds = rest = Math.floor(((launch_date.getTime() - now.getTime()) / 1000));
+
+   days = zero (Math.floor(seconds / 86400));
+   seconds -= days * 86400;
+			
+   hours = zero (Math.floor(seconds / 3600));
+   seconds -= hours * 3600;
+
+   minutes = zero (Math.floor(seconds / 60));
+   seconds -= minutes * 60;
+
+   seconds = zero (Math.floor(seconds));
+    
+   function zero(n){
+      return (n < 10 ? '0' : false) + n;  
+   }
+  
+   rest <= 0 ? days = hours = minutes = seconds = '00' : setTimeout(countdown, 1000);
+     
+   document.getElementById('countdown').innerHTML =
+      '<li><div><span>' + days +'</span>dia' + (days > 1 ? 's' : '') +'</div></li>'
+      +'<li><div><span>' + hours +'</span>hora' + (hours > 1 ? 's' : '') +'</div></li>'
+      +'<li><div><span>' + minutes +'</span>minuto' + (minutes > 1 ? 's' : '') +'</div></li>'
+      +'<li><div><span>' + seconds +'</span>segundo' + (seconds > 1 ? 's' : '') +'</div></li>';
+})();
+</script>
