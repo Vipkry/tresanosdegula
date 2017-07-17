@@ -1,41 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Covered+By+Your+Grace);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
+#days {
+  font-size: 150px;
+  color: #db4844;
+}
+#hours {
+  font-size: 150px;
+  color: #f07c22;
+}
+#minutes {
+  font-size: 150px;
+  color: #f6da74;
+}
+
+#seconds {
+  font-size: 150px;
+  color: #abcd58;
+}
+
+div {
+  display: inline-block;
+  line-height: 1;
+  padding: 20px;
+  font-size: 40px;
+}
+
+span {
+  display: block;
+  font-size: 40px;
+  color: white;
+}
+
 body {
-   font-family: Helvetica, sans-serif;
-   background: #E41E39;
+  text-align: center;
+  font-family: 'Josefin Sans', cursive;
+  color: white;
+  background: #222;
 }
 
-#countdown {
-   width: 462px;
-   position: absolute;
-   left: 50%;
-   top: 25%;
-   transform: translate(-50%, -50%) rotate(-45deg);
-   padding: 0;
-   list-style: none;
+#leremos{
+   font-size: 28px;
 }
 
-#countdown li {
-   display: table;
-   text-align: center;
-   float: left;
-   background: #fff;
-   margin: 2px;
-   width: 150px;
-   height: 150px;
-}
-
-#countdown li:nth-child(3) {
-   clear: left;
-   margin-left: 156px;
-}
-
-#countdown li div {
-   transform: rotate(45deg);
-   display: table-cell;
-   vertical-align: middle;
-}
-
-#countdown li div span {
-   display: block;
-   font-size: 3rem;
-   color: #323031;
+#comentario-title{
+   margin-top: 5%;
 }
