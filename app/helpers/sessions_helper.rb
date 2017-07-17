@@ -20,6 +20,14 @@ module SessionsHelper
       session.delete(:user_id)
       @current_user = nil
     end
+    
+    # Verifica se o usuario esta logado
+    def authenticated_as_user
+      if !logged_in?
+        flash.now[:error] = "Você precisa estar logado para acessar essa pagina"
+        redirect_to login_url
+      end
+    end
 
     
 end

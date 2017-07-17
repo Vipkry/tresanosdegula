@@ -1,6 +1,8 @@
 class ComentariosController < ApplicationController
   before_action :set_comentario, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticated_as_user, :except => [:create]
+  
+  
   # GET /comentarios
   # GET /comentarios.json
   def index
@@ -28,10 +30,10 @@ class ComentariosController < ApplicationController
 
     respond_to do |format|
       if @comentario.save
-        format.html { redirect_to @comentario, notice: 'Comentario was successfully created.' }
+        format.html { redirect_to root_url, notice: 'Comentario was successfully created.' }
         format.json { render :show, status: :created, location: @comentario }
       else
-        format.html { render :new }
+        format.html { render root_url }
         format.json { render json: @comentario.errors, status: :unprocessable_entity }
       end
     end

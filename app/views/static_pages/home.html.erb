@@ -12,33 +12,34 @@
 
 <br>
 
-<div id="comentario-title">Deixe seu comentário<br><span class="small-title">Prometemos que vamos ler todos rs</span></div>
+<div id="comentario-title"><a href="#comentar"id="button">Clique aqui para deixar seu comentário</a><br><span class="small-title">Prometemos que vamos ler todos rs</span></div>
 <br>
+<% @comentarios.each do |comentario| %>
+    <% if !comentario.desc.blank? %>
+        <div class="comentario">
+            <div class="conteudo"><p><%= comentario.desc %><br>
+            <span class="autor">Por: <% if comentario.name.blank? %> Anônimo <% else %><%= comentario.name %><% end %></span></p></div>
+        </div>
+    <% end %>
+<% end %>
 
-<div class="comentario">
-    <div class="conteudo"><p>LOREM IPSUM DOLOR SIT AMaaaaaaaaaaaa aaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaET!!!!LOREM IPSUM DOLOR SIT AMaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaa aaaaaaaaET!!!!
-    LOREM IPSUM DOLOR SIT AMaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaa aaaaaaET!!!!
-    LOREM IPSUM DOLOR SIT AMaaaaaaaaaa aaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaET!!!!
-    LOREM IPSUM DOLOR SIT AMaaaaaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaET!!!!LOREM IPSUM DOLOR SIT AMaaaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaET!!!!
-    LOREM IPSUM DOLOR SIT AMaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaa aaaaaaaaaaaaaaET!!!!<br>
-    <span class="autor">Por: SEU AUTOR FAVORITO</span></p></div>
-</div>
-
-<div class="comentario">
-    <div class="conteudo"><p>LOREM IPSUM DOLOR SIT AMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaET!!!!<br>
-    <span class="autor">Por: SEU AUTOR FAVORITO</span></p></div>
-</div>
-
-<div class="comentario">
-    <div class="conteudo"><p>LOREM IPSUM DOLOR SIT AMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaET!!!!<br>
-    <span class="autor">Por: SEU AUTOR FAVORITO</span></p></div>
-</div>
-
-<div class="comentario">
-    <div class="conteudo"><p>LOREM IPSUM DOLOR SIT AMaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaET!!!!<br>
-    <span class="autor">Por: SEU AUTOR FAVORITO</span></p></div>
-</div>
-
+<%= form_for(@comentario) do |f| %>
+  <div id="comentar">
+      <div class="field">
+        Comentário
+        <%= f.text_field :desc %>
+      </div>
+        <br>
+      <div class="field">
+        Seu nome
+        <%= f.text_field :name %>
+      </div>
+        <br>
+      <div class="actions">
+        <%= f.submit "Comentar", id: "botao"%>
+      </div>
+  </div>
+<% end %>
 
 <script>
     function makeTimer() {
